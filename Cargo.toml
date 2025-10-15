@@ -1,0 +1,23 @@
+[workspace]
+resolver = "2"
+members = [
+  "crates/raw-gpu-handle",
+  "crates/raw-gpu-handle-ash",
+  "crates/raw-gpu-handle-wgpu",
+]
+default-members = [
+  "crates/raw-gpu-handle",
+  "crates/raw-gpu-handle-ash",
+  "crates/raw-gpu-handle-wgpu",
+]
+
+[workspace.package]
+version = "0.0.1"
+edition = "2024"
+rust-version = "1.85"
+repository = "https://github.com/inner-daemons/raw-gpu-handle"
+license = "MIT OR Apache-2.0"
+keywords = ["graphics", "gpu"]
+
+[workspace.dependencies]
+raw-gpu-handle = { path = "crates/raw-gpu-handle" }
