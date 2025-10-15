@@ -14,15 +14,16 @@ All reconstructed objects must be reconstructed by the same driver. That means a
 Semaphores are the simplest objects. In order to be used properly, the semaphores must only be signalled on the device-side. Additionally, they must be timeline semaphores.
 
 ### Memory
-Because some objects may share the same memory object, memory is exported separately from objects (this is ignored on metal). Therefore, when buffers or textures are being exported, not only is the memory object needed, but also an offset and size.
+Because some objects may share the same memory object, memory is exported separately from objects (this is ignored on metal). Therefore, when buffers or textures are being exported, not only is the memory object needed, but also an offset, size, and alignment guarantees.
 
-When reconstructing objects, it must be in the same memory heap and memory type.
+The information about memory location must also be shared, e.g. memory heap and type.
 
 ### Buffers
-Buffers require information about the alignment guarantees of the allocated object.
 
 ### Textures
 When reconstructing textures, more information is required. The texture format must match, as well texture type information (D2 vs D2array vs D3). Additionally, information about the memory alignment of rows/slices of textures must be given.
+
+Textures cannot have mip levels, and cannot be multisampled (e.g. `VK_SAMPLE_COUNT_1_BIT = 1`). Textures must have 
 
 ### Synchroniation
 Aside from semaphores, resource transfers (such as between queue families in vulkan) must be done when sharing data. Image layout transitions must also be done properly.
