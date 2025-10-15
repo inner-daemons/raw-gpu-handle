@@ -1,7 +1,6 @@
 [package]
 name = "raw-gpu-handle-wgpu"
 description = "raw-gpu-handle implementation for the `wgpu` crate"
-readme = "../readme.md"
 
 version.workspace = true
 edition.workspace = true

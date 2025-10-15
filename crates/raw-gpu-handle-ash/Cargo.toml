@@ -1,7 +1,6 @@
 [package]
 name = "raw-gpu-handle-ash"
 description = "raw-gpu-handle implementation for the `ash` crate"
-readme = "../readme.md"
 
 version.workspace = true
 edition.workspace = true
