@@ -1,7 +1,5 @@
 [package]
-name = "raw-gpu-handle-wgpu"
-description = "raw-gpu-handle implementation for the `wgpu` crate"
-
+name = "demo"
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
@@ -11,7 +9,6 @@ keywords.workspace = true
 
 [dependencies]
 raw-gpu-handle.workspace = true
+raw-gpu-handle-wgpu.workspace = true
 wgpu.workspace = true
-
-ash = "*"
-thiserror = "2.0"
+tokio = { version = "1.48", features = ["full"] }

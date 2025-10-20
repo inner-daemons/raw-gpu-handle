@@ -4,11 +4,13 @@ members = [
   "crates/raw-gpu-handle",
   "crates/raw-gpu-handle-ash",
   "crates/raw-gpu-handle-wgpu",
+  "demo",
 ]
 default-members = [
   "crates/raw-gpu-handle",
   "crates/raw-gpu-handle-ash",
   "crates/raw-gpu-handle-wgpu",
+  "demo"
 ]
 
 [workspace.package]
@@ -21,3 +23,7 @@ keywords = ["graphics", "gpu"]
 
 [workspace.dependencies]
 raw-gpu-handle = { path = "crates/raw-gpu-handle" }
+raw-gpu-handle-wgpu = { path = "crates/raw-gpu-handle-wgpu" }
+wgpu = { git = "https://github.com/gfx-rs/wgpu.git", features = [
+  "vulkan-portability",
+] }
