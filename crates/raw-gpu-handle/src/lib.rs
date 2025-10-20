@@ -1,8 +1,21 @@
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
 pub struct RawWin32Handle {
-    inner: i32,
+    inner: isize,
 }
 impl RawWin32Handle {
+    pub fn new(handle: isize) -> Self {
+        Self { inner: handle }
+    }
+    pub fn get(&self) -> isize {
+        self.inner
+    }
+}
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
+pub struct RawLinuxFd {
+    inner: i32,
+}
+impl RawLinuxFd {
     pub fn new(handle: i32) -> Self {
         Self { inner: handle }
     }
@@ -11,19 +24,7 @@ impl RawWin32Handle {
     }
 }
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
-pub struct RawLinuxFd {
-    inner: i64,
-}
-impl RawLinuxFd {
-    pub fn new(handle: i64) -> Self {
-        Self { inner: handle }
-    }
-    pub fn get(&self) -> i64 {
-        self.inner
-    }
-}
-
+/// To be figured out at a later date
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
 pub struct RawMetalResourceHandle {
     inner: i64,
