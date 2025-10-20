@@ -10,6 +10,10 @@ All safety mechanisms are simply rules that other libraries must follow. The `ra
 ### General
 All reconstructed objects must be reconstructed by the same driver. That means a semaphore created by an integrated device driver cannot be imported into a discrete or virtual device driver.
 
+All imported objects cannot then be reexported normally. Rather, the same import handle must be reused.
+
+The resource is destroyed when the logical device that originally created it destroys it. Other devices only destroy their reference to it.
+
 ### Semaphores
 Semaphores are the simplest objects. In order to be used properly, the semaphores must only be signalled on the device-side. Additionally, they must be timeline semaphores.
 
@@ -17,6 +21,8 @@ Semaphores are the simplest objects. In order to be used properly, the semaphore
 Because some objects may share the same memory object, memory is exported separately from objects (this is ignored on metal). Therefore, when buffers or textures are being exported, not only is the memory object needed, but also an offset, size, and alignment guarantees.
 
 The information about memory location must also be shared, e.g. memory heap and type.
+
+Exportable or imported memory cannot be mapped.
 
 ### Buffers
 

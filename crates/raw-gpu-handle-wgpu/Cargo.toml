@@ -10,3 +10,8 @@ license.workspace = true
 keywords.workspace = true
 
 [dependencies]
+raw-gpu-handle.workspace = true
+wgpu = { version = "27.0", features = ["vulkan-portability"] }
+
+ash = "*"
+thiserror = "2.0"
